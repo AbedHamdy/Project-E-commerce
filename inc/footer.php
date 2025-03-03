@@ -19,10 +19,10 @@
                             <h3>Information</h3>
                             <div class="footer_menu">
                                 <ul>
-                                    <li><a href="./?about">About Us</a></li>
-                                    <li><a href="./?blog">Delivery Information</a></li>
-                                    <li><a href="./?contact">Privacy Policy</a></li>
-                                    <li><a href="./?services">Terms & Conditions</a></li>
+                                    <li><a href="./?page=about">About Us</a></li>
+                                    <li><a href="./?page=blog">Delivery Information</a></li>
+                                    <li><a href="./?page=contact">Privacy Policy</a></li>
+                                    <li><a href="./?page=services">Terms & Conditions</a></li>
                                     <!-- <li><a href="#">Returns</a></li>
                                     <li><a href="#">Gift Certificates</a></li> -->
                                 </ul>
@@ -36,10 +36,10 @@
                                 <ul>
                                     <li><a href="#">My Account</a></li>
                                     <li><a href="#">Order History</a></li>
-                                    <li><a href="./?wishlist">Wish List</a></li>
+                                    <li><a href="./?page=wishlist">Wish List</a></li>
                                     <li><a href="#">Newsletter</a></li>
                                     <li><a href="#">Affiliate</a></li>
-                                    <li><a href="./?faq">International Orders</a></li>
+                                    <li><a href="./?page=faq">International Orders</a></li>
                                 </ul>
                             </div>
                         </div>

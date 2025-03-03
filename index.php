@@ -3,7 +3,11 @@
     require_once("./inc/nav.php"); 
 
     $page = $_GET["page"] ?? "home";
+    // var_dump($page);
+    // die;
     
+    $page = $_GET["page"] ?? "home";
+
     switch($page) 
     {
         case "home":
@@ -15,7 +19,29 @@
         case "register":
             require_once("./view/register.php");
             break;
+        case "about":
+            require_once("./view/about.php");
+            break;
+        case "blog":
+            require_once("./view/blog.php");
+            break;
+        case "contact":
+            require_once("./view/contact.php");
+            break;
+        case "services":
+            require_once("./view/services.php");
+            break;
+        case "wishlist":
+            require_once("./view/wishlist.php");
+            break;
+        case "faq":
+            require_once("./view/faq.php");
+            break;
+        default:
+            require_once("./view/404.php"); // إنشاء صفحة 404 لأي رابط غير موجود
+            break;
     }
+
     
 	
 	

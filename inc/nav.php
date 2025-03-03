@@ -19,8 +19,8 @@
                         </div>
                         <div class="top_right text-right">
                             <ul>
-                               <li><a href="my-account.php"> My Account </a></li> 
-                               <li><a href="checkout.php"> Checkout </a></li> 
+                               <li><a href="./?page=page=my-account"> My Account </a></li> 
+                               <li><a href="./?page=page=checkout"> Checkout </a></li> 
                             </ul>
                         </div> 
                         <div class="search_container">
@@ -34,7 +34,7 @@
                         
                         <div class="middel_right_info">
                             <div class="header_wishlist">
-                                <a href="wishlist.php"><img src="assets/img/user.png" alt=""></a>
+                                <a href="./?page=page=wishlist"><img src="assets/img/user.png" alt=""></a>
                             </div>
                             <div class="mini_cart_wrapper">
                                 <a href="javascript:void(0)"><img src="assets/img/shopping-bag.png" alt=""></a>
@@ -78,10 +78,10 @@
 
                                     <div class="mini_cart_footer">
                                        <div class="cart_button">
-                                            <a href="cart.php">View cart</a>
+                                            <a href="./?page=page=cart">View cart</a>
                                         </div>
                                         <div class="cart_button">
-                                            <a href="checkout.php">Checkout</a>
+                                            <a href="./?page=page=checkout">Checkout</a>
                                         </div>
 
                                     </div>
@@ -90,6 +90,46 @@
                                 <!--mini cart end-->
                             </div>
                         </div>
+                        <div id="menu" class="text-left ">
+                            <ul class="offcanvas_main_menu">
+                                <li class="menu-item-has-children active">
+                                    <a href="./?page=page=home">Home</a>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="./?page=product-details">product</a>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <!-- <a href="">pages </a> -->
+                                    <ul class="sub-menu">
+                                        <li><a href="./?page=about">About Us</a></li>
+										<li><a href="./?page=contact">contact</a></li>
+										<li><a href="./?page=privacy-policy">privacy policy</a></li>
+										<li><a href="./?page=faq">Frequently Questions</a></li>
+										<li><a href="./?page=login">login</a></li>
+										<li><a href="./?page=register">register</a></li>
+										<li><a href="./?page=forget-password">Forget Password</a></li>
+										<li><a href="./?page=404">Error 404</a></li>
+										<li><a href="./?page=cart">cart</a></li>
+										<li><a href="./?page=tracking">tracking</a></li>
+										<li><a href="./?page=checkout">checkout</a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="#">blog</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="./?page=blog">blog</a></li>
+                                        <li><a href="./?page=blog-details">blog details</a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="./?page=login">my account</a>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="./?page=contact"> Contact Us</a> 
+                                </li>
+                            </ul>
+                        </div>
+
                         <div class="Offcanvas_footer">
                             <span><a href="#"><i class="fa fa-envelope-o"></i> info@drophunt.com</a></span>
                             <ul>
@@ -121,8 +161,8 @@
                         <div class="col-lg-6 col-md-6">
                             <div class="top_right text-right">
                                 <ul>
-                                   <li><a href="my-account.php">Account</a></li> 
-                                   <li><a href="checkout.php">Checkout</a></li> 
+                                   <li><a href="./?page=my-account">Account</a></li> 
+                                   <li><a href="./?page=checkout">Checkout</a></li> 
                                 </ul>
                             </div>   
                         </div>
@@ -136,7 +176,7 @@
                     <div class="row align-items-center">
                         <div class="col-lg-3 col-md-6">
                             <div class="logo">
-                                <a href="index-2.php"><img src="assets/img/logo/logo.png" alt=""></a>
+                                <a href="./?page=home"><img src="assets/img/logo/logo.png" alt=""></a>
                             </div>
                         </div>
                         <div class="col-lg-9 col-md-6">
@@ -151,7 +191,7 @@
                                 </div>
                                 <div class="middel_right_info">
                                     <div class="header_wishlist">
-                                        <a href="#"><img src="assets/img/user.png" alt=""></a>
+                                        <a><img src="assets/img/user.png" alt=""></a>
                                     </div>
                                     <div class="mini_cart_wrapper">
                                         <a href="javascript:void(0)"><img src="assets/img/shopping-bag.png" alt=""></a>
@@ -160,19 +200,19 @@
                                          <div class="mini_cart">
                                             <div class="cart_item">
                                                <div class="cart_img">
-                                                   <a href="#"><img src="assets/img/s-product/product.jpg" alt=""></a>
+                                                   <a><img src="assets/img/s-product/product.jpg" alt=""></a>
                                                </div>
                                                 <div class="cart_info">
                                                     <a href="#">Sit voluptatem rhoncus sem lectus</a>
                                                     <p>Qty: 1 X <span> $60.00 </span></p>    
                                                 </div>
                                                 <div class="cart_remove">
-                                                    <a href="#"><i class="ion-android-close"></i></a>
+                                                    <a><i class="ion-android-close"></i></a>
                                                 </div>
                                             </div>
                                             <div class="cart_item">
                                                <div class="cart_img">
-                                                   <a href="#"><img src="assets/img/s-product/product2.jpg" alt=""></a>
+                                                   <a><img src="assets/img/s-product/product2.jpg" alt=""></a>
                                                </div>
                                                 <div class="cart_info">
                                                     <a href="#">Natus erro at congue massa commodo</a>
@@ -195,10 +235,10 @@
 
                                             <div class="mini_cart_footer">
                                                <div class="cart_button">
-                                                    <a href="cart.php">View cart</a>
+                                                    <a href="./?page=page=cart">View cart</a>
                                                 </div>
                                                 <div class="cart_button">
-                                                    <a href="checkout.php">Checkout</a>
+                                                    <a href="./?page=page=checkout">Checkout</a>
                                                 </div>
 
                                             </div>
@@ -221,31 +261,31 @@
                             <div class="main_menu menu_position"> 
                                 <nav>  
                                     <ul>
-                                        <li><a href="./?home">home</a></li>
-                                        <li><a href="./?product-details">Product</a></li>
+                                        <li><a href="./?page=home">home</a></li>
+                                        <li><a href="./?page=product-details">Product</a></li>
                                         
-                                        <li><a class="active" >pages <i class="fa fa-angle-down"></i></a>
+                                        <li><a class="active" href="#">pages <i class="fa fa-angle-down"></i></a>
                                             <ul class="sub_menu pages">
-                                                <li><a href="./?about">About Us</a></li>
-                                                <li><a href="./?contact">contact</a></li>
-                                                <li><a href="./?privacy-policy">privacy policy</a></li>
-                                                <li><a href="./?faq">Frequently Questions</a></li>
-                                                <li><a href="./?./?login">login</a></li>
-                                                <li><a href="./?register">register</a></li>
-                                                <li><a href="./?forget-password">Forget Password</a></li>
-                                                <li><a href="./?404">Error 404</a></li>
-                                                <li><a href="./?cart">cart</a></li>
-                                                <li><a href="./?tracking">tracking</a></li>
-                                                <li><a href="./?checkout">checkout</a></li>
+                                                <li><a href="./?page=about">About Us</a></li>
+                                                <li><a href="./?page=contact">contact</a></li>
+                                                <li><a href="./?page=privacy-policy">privacy policy</a></li>
+                                                <li><a href="./?page=faq">Frequently Questions</a></li>
+                                                <li><a href="./?page=login">login</a></li>
+                                                <li><a href="./?page=register">register</a></li>
+                                                <li><a href="./?page=forget-password">Forget Password</a></li>
+                                                <li><a href="./?page=404">Error 404</a></li>
+                                                <li><a href="./?page=cart">cart</a></li>
+                                                <li><a href="./?page=tracking">tracking</a></li>
+                                                <li><a href="./?page=checkout">checkout</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="./?blog">blog<i class="fa fa-angle-down"></i></a>
+                                        <li><a href="./?page=blog">blog<i class="fa fa-angle-down"></i></a>
                                             <ul class="sub_menu pages">
-                                                <li><a href="./?blog">blog</a></li>
-                                                <li><a href="./?blog-details">blog details</a></li>
+                                                <li><a href="./?page=blog">blog</a></li>
+                                                <li><a href="./?page=blog-details">blog details</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="contact.php"> Contact Us</a></li>
+                                        <li><a href="./?page=contact"> Contact Us</a></li>
                                     </ul>  
                                 </nav> 
                             </div>

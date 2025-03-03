@@ -19,12 +19,12 @@
                             <h3>Information</h3>
                             <div class="footer_menu">
                                 <ul>
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="blog.html">Delivery Information</a></li>
-                                    <li><a href="contact.html">Privacy Policy</a></li>
-                                    <li><a href="services.html">Terms & Conditions</a></li>
-                                    <li><a href="#">Returns</a></li>
-                                    <li><a href="#">Gift Certificates</a></li>
+                                    <li><a href="./?about">About Us</a></li>
+                                    <li><a href="./?blog">Delivery Information</a></li>
+                                    <li><a href="./?contact">Privacy Policy</a></li>
+                                    <li><a href="./?services">Terms & Conditions</a></li>
+                                    <!-- <li><a href="#">Returns</a></li>
+                                    <li><a href="#">Gift Certificates</a></li> -->
                                 </ul>
                             </div>
                         </div>
@@ -36,10 +36,10 @@
                                 <ul>
                                     <li><a href="#">My Account</a></li>
                                     <li><a href="#">Order History</a></li>
-                                    <li><a href="wishlist.html">Wish List</a></li>
+                                    <li><a href="./?wishlist">Wish List</a></li>
                                     <li><a href="#">Newsletter</a></li>
                                     <li><a href="#">Affiliate</a></li>
-                                    <li><a href="faq.html">International Orders</a></li>
+                                    <li><a href="./?faq">International Orders</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -55,7 +55,7 @@
                                     <li><a class="linkedin" href="#" title="linkedin"><i class="fa fa-linkedin"></i></a></li>
                                     <li><a class="rss" href="#" title="rss"><i class="fa fa-rss"></i></a></li>
                                 </ul>
-                            </div>
+                            </div>  
                             <div class="subscribe_form">
                                 <h3>Join Our Newsletter Now</h3>
                                 <form id="mc-form" class="mc-form footer-newsletter" >

@@ -1,10 +1,9 @@
 <?php 
 
     // require_once("../classes/request-check.php");
-    session_start();
     spl_autoload_register(function($class)
     {
-        require_once "../classes/$class.php";
+        require_once "./classes/$class.php";
     });
 
     $errors = [];
@@ -47,21 +46,56 @@
             // var_dump($errors);
             // var_dump($data);
             // die;
-            require_once "../model/User.php";
+            require_once "./env.php";
+            require_once "./model/User.php";
             $user = new User($data["name"], $data["email"], sha1($data["password"]));
-            $user->setData();
-            $_SESSION["auth"] = $data["email"];
-            header("location:../?page=home");
+            $userID = $user->setData();
+            // var_dump($userID);
+            // die;
+            if($userID > 0)
+            {
+                // var_dump($userID);
+                // die;
+                $_SESSION["auth"] = 
+                    [
+                        "id" => $userID,
+                        "name" => $data["name"],
+                        "email" => $data["email"]
+                    ];
+                
+                // var_dump($_SESSION["auth"]);
+                // die;
+                header("location:./?page=home");
+                die;
+            }
+            else if($userID == "0")
+            {
+                $errors[] = "Email already exists";
+                $_SESSION["errors"] = $errors;
+                header("location:./?page=register");
+                die;
+            }
+            else 
+            {
+                $_SESSION["errors"] = ["Error in creating user"];
+                header("location:./?page=register");
+                die;
+            }
+            // header("location:../?page=home");
         }
         else 
         {
             $_SESSION["errors"] = $errors;
-            header("location:../?page=register");
+            header("location:./?page=register");
+            die;
         }
     }
     else 
     {
-        header("location:../?page=404");
+        $errors[] = "Invalid request";
+        $_SESSION["errors"] = $errors;
+        header("location:./?page=404");
+        die;
     }
 
 

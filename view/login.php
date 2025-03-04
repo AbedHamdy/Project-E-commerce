@@ -1,4 +1,3 @@
-
     <!--breadcrumbs area start-->
     <div class="breadcrumbs_area">
         <div class="container">   
@@ -15,7 +14,6 @@
         </div>         
     </div>
     <!--breadcrumbs area end-->
-
 	<section class="account">
 		<div class="container">
 			<div class="row justify-content-center">
@@ -30,14 +28,14 @@
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                                 <div class="account-content">
-                                    <form action="#">
+                                    <form action="./?page=login-user" method="POST">
                                         <div class="single-acc-field">
                                             <label for="email">Email</label>
-                                            <input type="email" id="email" placeholder="Enter your Email">
+                                            <input type="email" name="email" id = "email" placeholder="Enter your Email">
                                         </div>
                                         <div class="single-acc-field">
                                             <label for="password">Password</label>
-                                            <input type="password" id="password" placeholder="Enter your password">
+                                            <input type="password" name="password" id = "password" placeholder="Enter your password">
                                         </div>
                                         <div class="single-acc-field">
                                             <button type="submit">Login Account</button>

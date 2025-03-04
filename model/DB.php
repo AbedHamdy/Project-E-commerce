@@ -1,6 +1,5 @@
 <?php 
 
-    require_once "../env.php";
     class DB 
     {
         private static $con;

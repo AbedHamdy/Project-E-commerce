@@ -17,12 +17,16 @@
         case "login":
             require_once("./view/login.php");
             break;
+        case "login-user":
+            require_once("./controller/login-user.php");
+            break;
         case "register":
             require_once("./view/register.php");
             break;
         case "create-user":
             require_once("./controller/create-user.php");
             break;
+// =================================================================
         case "about":
             require_once("./view/about.php");
             break;
@@ -42,7 +46,7 @@
             require_once("./view/faq.php");
             break;
         default:
-            require_once("./view/404.php"); // إنشاء صفحة 404 لأي رابط غير موجود
+            require_once("./view/404.php"); 
             break;
     }
 

@@ -40,7 +40,7 @@
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                                 <div class="account-content">
-                                    <form action="./controller/create-user.php" method="POST">
+                                    <form action="./?page=create-user" method="POST">
                                         <div class="single-acc-field">
                                             <label for="name">Name</label>
                                             <input type="text" name="name" id="name" placeholder="Enter Your Name">

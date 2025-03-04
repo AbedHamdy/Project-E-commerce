@@ -6,7 +6,7 @@
                 <div class="col-12">
                     <div class="breadcrumb_content">
                         <ul>
-                            <li><a href="index-2.html">home</a></li>
+                            <li><a href="./?page=index-2">home</a></li>
                             <li>Login</li>
                         </ul>
                     </div>
@@ -39,15 +39,11 @@
                                             <label for="password">Password</label>
                                             <input type="password" id="password" placeholder="Enter your password">
                                         </div>
-                                        <div class="single-acc-field boxes">
-                                            <input type="checkbox" id="checkbox">
-                                            <label for="checkbox">Remember me</label>
-                                        </div>
                                         <div class="single-acc-field">
                                             <button type="submit">Login Account</button>
                                         </div>
-                                        <a href="forget-password.html">Forget Password?</a>
-                                        <a href="register.html">Not Account Yet?</a>
+                                        <a href="./?page=forget-password">Forget Password?</a>
+                                        <a href="./?page=register">Not Account Yet?</a>
                                     </form>
                                 </div>
                             </div>

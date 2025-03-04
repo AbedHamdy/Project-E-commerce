@@ -1,6 +1,7 @@
 <?php 
     require_once("./inc/header.php"); 
     require_once("./inc/nav.php"); 
+    // require_once("./classes/request-check.php");
 
     $page = $_GET["page"] ?? "home";
     // var_dump($page);
@@ -18,6 +19,9 @@
             break;
         case "register":
             require_once("./view/register.php");
+            break;
+        case "create-user":
+            require_once("./controller/create-user.php");
             break;
         case "about":
             require_once("./view/about.php");

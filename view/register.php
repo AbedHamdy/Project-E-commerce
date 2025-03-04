@@ -14,6 +14,16 @@
             </div>
         </div>         
     </div>
+    <?php 
+        if(isset($_SESSION["errors"])) :
+            foreach($_SESSION["errors"] as $error) :
+    ?>
+                <div class='alert alert-danger'><?= $error ?></div>
+    <?php 
+            endforeach;
+        endif;
+            unset($_SESSION["errors"]);
+    ?>
     <!--breadcrumbs area end-->
 
 	<section class="account">
@@ -30,27 +40,23 @@
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                                 <div class="account-content">
-                                    <form action="#">
+                                    <form action="./controller/create-user.php" method="POST">
                                         <div class="single-acc-field">
                                             <label for="name">Name</label>
-                                            <input type="text" id="name" placeholder="Enter Your Name">
+                                            <input type="text" name="name" id="name" placeholder="Enter Your Name">
                                         </div>
                                         <div class="single-acc-field">
                                             <label for="email">Email</label>
-                                            <input type="email" id="email" placeholder="Enter your Email">
+                                            <input type="email" name="email" id="email" placeholder="Enter your Email">
                                         </div>
                                         <div class="single-acc-field">
                                             <label for="password">Password</label>
-                                            <input type="password" id="password" placeholder="At least 6 Charecter">
-                                        </div>
-                                        <div class="single-acc-field boxes">
-                                            <input type="checkbox" id="checkbox">
-                                            <label for="checkbox">I'm not a robot</label>
+                                            <input type="password" name="password" id="password" placeholder="At least 6 Charecter">
                                         </div>
                                         <div class="single-acc-field">
                                             <button type="submit">Register now</button>
                                         </div>
-                                        <a href="login.html">Already account? Login</a>
+                                        <a href="./?page=login">Already account? Login</a>
                                     </form>
                                 </div>
                             </div>

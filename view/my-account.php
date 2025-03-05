@@ -1,12 +1,10 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-<html>
-    <head>
-        <title>404 Not Found</title>
-    </head>
-    <body>
-        <h1>Not Found</h1>
-        <p>The requested URL was not found on this server.</p>
-        <p>Additionally, a 404 Not Found
-        error was encountered while trying to use an ErrorDocument to handle the request.</p>
-    </body>
-</html>
+<div class="card user-info">
+    <div class="card-body">
+        <h5 class="card-title">User Information</h5>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Name:</strong> Abed</li>
+            <li class="list-group-item"><strong>Email:</strong> l@l.com</li>
+        </ul>
+    </div>
+</div>
+

@@ -1,9 +1,10 @@
 <?php 
+    ob_start(); 
+    session_start();
     require_once("./inc/header.php"); 
-    require_once("./inc/nav.php"); 
-    // require_once("./classes/request-check.php");
+    // require_once("./inc/nav.php"); 
 
-    $page = $_GET["page"] ?? "home";
+    // $page = $_GET["page"] ?? "home";
     // var_dump($page);
     // die;
     
@@ -25,6 +26,18 @@
             break;
         case "create-user":
             require_once("./controller/create-user.php");
+            break;
+        case "my-account":
+            require_once("./view/my-account.php");
+            break;
+        case "products":
+            require_once("./controller/products/get-product.php");
+            break;
+        case "product-details":
+            require_once("./view/product-details.php");
+            break;
+        case "wishlist":
+            require_once("./view/wishlist.php");
             break;
 // =================================================================
         case "about":
@@ -49,9 +62,7 @@
             require_once("./view/404.php"); 
             break;
     }
-
-    
-	
 	
     require_once("./inc/footer.php"); 
+	ob_end_flush(); 
 ?>

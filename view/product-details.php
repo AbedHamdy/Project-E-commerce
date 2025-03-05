@@ -1,4 +1,3 @@
-
     <!--breadcrumbs area start-->
     <div class="breadcrumbs_area">
         <div class="container">   
@@ -6,7 +5,7 @@
                 <div class="col-12">
                     <div class="breadcrumb_content">
                         <ul>
-                            <li><a href="index-2.html">home</a></li>
+                            <li><a href="./?page=home">home</a></li>
                             <li>Product details</li>
                         </ul>
                     </div>
@@ -14,12 +13,29 @@
             </div>
         </div>         
     </div>
+    <?php 
+        if(isset($_SESSION['noProducts'])) :
+    ?>
+        <div class="container">
+            <div class="alert alert-warning text-center mt-4" role="alert" style="padding: 20px; border-radius: 10px; font-size: 18px;">
+                <i class="fas fa-exclamation-circle"></i> <strong>No Products Found</strong>
+            </div>
+        </div>
+    <?php
+        // unset($_SESSION['noProducts']);
+        endif;
+        if(isset($_SESSION['products'])) :
+            foreach($_SESSION['products'] as $product) :
+                $currentPice = $product["price"] - ($product["price"] * $product["discount"] / 100);
+                // var_dump($product);
+    ?>
     <!--breadcrumbs area end-->
     
     <!--product details start-->
     <div class="product_details mt-60 mb-60">
         <div class="container">
             <div class="row">
+                <!-- photos -->
                 <div class="col-lg-6 col-md-6">
                    <div class="product-details-tab">
                         <div id="img-1" class="zoomWrapper single-zoom">
@@ -27,7 +43,7 @@
                                 <img id="zoom1" src="assets/img/product/details-1.jpg" data-zoom-image="assets/img/product/details-1.jpg" alt="big-1">
                             </a>
                         </div>
-                        <div class="single-zoom-thumb">
+                        <!-- <div class="single-zoom-thumb">
                             <ul class="s-tab-zoom owl-carousel single-product-active" id="gallery_01">
                                 <li>
                                     <a href="#" class="elevatezoom-gallery active" data-update="" data-image="assets/img/product/details-2.jpg" data-zoom-image="assets/img/product/details-2.jpg">
@@ -54,15 +70,15 @@
 
                                 </li>
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="product_d_right">
-                       <form action="#">
-                           
+                       <form action="#"> 
                             <h1>Fancy Chair for astron floor</h1>
-                            <div class=" product_ratting">
+                            <!-- rating for product -->
+                            <!-- <div class=" product_ratting">
                                 <ul>
                                     <li><a href="#"><i class="fa fa-star"></i></a></li>
                                     <li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -71,24 +87,25 @@
                                     <li><a href="#"><i class="fa fa-star"></i></a></li>
                                     <li class="review"><a href="#"> (250 reviews) </a></li>
                                 </ul>
-                                
-                            </div>
+                            </div> -->
                             <div class="price_box">
-                                <span class="current_price">$70.00</span>
-                                <span class="old_price">$80.00</span>
+                                <span class="current_price">$<?= $currentPice; ?></span>
+                                <span class="old_price">$<?= $product["price"]; ?></span>
                                 
                             </div>
+                            <!-- price , discount , description -->
                             <div class="product_desc">
                                 <ul>
                                     <li>In Stock</li>
                                     <li>Free delivery available*</li>
-                                    <li>Sale 30% Off Use Code : 'Drophut'</li>
+                                    <li>Sale <?= $product["discount"]; ?> Off Use Code : 'Drophut'</li>
                                 </ul>
-                                <p>eget velit. Donec ac tempus ante. Fusce ultricies massa massa. Fusce aliquam, purus eget sagittis vulputate, sapien libero hendrerit est, sed commodo augue nisi non neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor, lorem et placerat vestibulum, metus nisi posuere nisl, in </p>
+                                <p><?= $product["description"]; ?></p>
                             </div>
 							<div class="product_timing">
                                 <div data-countdown="2023/12/15"></div>
                             </div>
+                            <!-- color -->
                             <div class="product_variant color">
                                 <h3>Available Options</h3>
                                 <label>color</label>
@@ -99,33 +116,32 @@
                                     <li class="color4"><a href="#"></a></li>
                                 </ul>
                             </div>
+                            <!-- quantity -->
                             <div class="product_variant quantity">
                                 <label>quantity</label>
                                 <input min="1" max="100" value="1" type="number">
                                 <button class="button" type="submit">add to cart</button>  
-                                
                             </div>
+                            <!-- action -->
                             <div class=" product_d_action">
                                <ul>
-                                   <li><a href="#" title="Add to wishlist">+ Add to Wishlist</a></li>
+                                   <li><a href="./?page=wishlist" title="Add to wishlist">+ Add to Wishlist</a></li>
                                    <li><a href="#" title="Add to wishlist">+ Compare</a></li>
                                </ul>
                             </div>
+                            <!-- categories -->
                             <div class="product_meta">
-                                <span>Category: <a href="#">Clothing</a></span>
+                                <span>Category: <a href="#"><?= $product["category_name"]; ?></a></span>
                             </div>
-                            
                         </form>
+                        <!-- social media -->
                         <div class="priduct_social">
                             <ul>
-                                <li><a class="facebook" href="#" title="facebook"><i class="fa fa-facebook"></i> Like</a></li>           
-                                <li><a class="twitter" href="#" title="twitter"><i class="fa fa-twitter"></i> tweet</a></li>           
-                                <li><a class="pinterest" href="#" title="pinterest"><i class="fa fa-pinterest"></i> save</a></li>           
-                                <li><a class="google-plus" href="#" title="google +"><i class="fa fa-google-plus"></i> share</a></li>        
-                                <li><a class="linkedin" href="#" title="linkedin"><i class="fa fa-linkedin"></i> linked</a></li>        
+                                <li><a class="facebook" href="https://www.facebook.com/profile.php?id=100046706022227" title="facebook"><i class="fa fa-facebook"></i> Like</a></li>           
+                                <li><a class="twitter" href=" https://x.com/Abdelrahman9129?t=tzWxqb7sIWyQ2LOey4Cv3A&s=08" title="twitter"><i class="fa fa-twitter"></i> tweet</a></li>           
+                                <li><a class="linkedin" href="https://www.linkedin.com/in/abed-hamdy-bb491925b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" title="linkedin"><i class="fa fa-linkedin"></i> linked</a></li>        
                             </ul>      
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -252,5 +268,9 @@
         </div>    
     </div>  
     <!--product info end-->
-
+<?php 
+      endforeach;
+    unset($_SESSION['products']);
+    endif;
+?>
 

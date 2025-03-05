@@ -1,6 +1,6 @@
 <?php 
 
-    // require_once("../classes/request-check.php");
+    echo "abed";
     spl_autoload_register(function($class)
     {
         require_once "./classes/$class.php";

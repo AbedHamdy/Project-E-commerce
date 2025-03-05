@@ -26,7 +26,9 @@
             {
                 return "0";
             }
-                $sql = "INSERT INTO `users` (`name`, `email` , `password`) VALUES ('$this->name', '$this->email', '$this->password')";
+            
+            $sql = "INSERT INTO `users` (`name`, `email` , `password`) VALUES ('$this->name', '$this->email', '$this->password')";
+            
             if($con->query($sql) === true)
             {
                 $query = "SELECT LAST_INSERT_ID() AS last_id";

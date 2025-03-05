@@ -39,8 +39,8 @@
 
             $customer = new Customer($data["email"], sha1($data["password"]));
             $clint = $customer->checkAccount();
-            var_dump($clint);
-            die;
+            // var_dump($clint);
+            // die;
             
             if($clint !== NULL)
             {
@@ -50,20 +50,24 @@
                         "name" => $clint["name"],
                         "email" => $data["email"]
                     ];
-                header("location:../?page=home");
+                    // var_dump($_SESSION["auth"]);
+                    // die;
+                header("location:./?page=home");
             }
-            // else 
-            // {
-            //     $errors[] = "Invalid email";
-            //     $_SESSION["errors"] = $errors;
-            //     // var_dump($_SESSION["errors"]);
-            //     header("location:../?page=login");
-            // }
+            else 
+            {
+                $errors[] = "Invalid email or password";
+                $_SESSION["errors"] = $errors;
+                // var_dump($errors);
+                // die;
+
+                header("location:./?page=login");
+            }
         }
         else 
         {
             $_SESSION["errors"] = $errors;
-            header("location:../?page=login");
+            header("location:./?page=login");
             die;
         }
 
@@ -72,7 +76,7 @@
     {
         $errors[] = "Invalid request";
         $_SESSION["errors"] = $errors;
-        header("location:../?page=404");
+        header("location:./?page=404");
         die;
     }
 

@@ -13,6 +13,16 @@
             </div>
         </div>         
     </div>
+    <?php 
+        if(isset($_SESSION["errors"])) :
+            foreach($_SESSION["errors"] as $error) :
+    ?>
+                <div class='alert alert-danger'><?= $error ?></div>
+    <?php 
+            endforeach;
+        endif;
+            unset($_SESSION["errors"]);
+    ?>
     <!--breadcrumbs area end-->
 	<section class="account">
 		<div class="container">
@@ -28,7 +38,7 @@
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                                 <div class="account-content">
-                                    <form action="./?page=login-user" method="POST">
+                                    <form action="index.php?page=login-user" method="POST">
                                         <div class="single-acc-field">
                                             <label for="email">Email</label>
                                             <input type="email" name="email" id = "email" placeholder="Enter your Email">

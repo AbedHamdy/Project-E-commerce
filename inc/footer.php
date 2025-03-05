@@ -34,7 +34,7 @@
                             <h3>My Account</h3>
                             <div class="footer_menu">
                                 <ul>
-                                    <li><a href="#">My Account</a></li>
+                                    <li><a href="./?page=my-account">My Account</a></li>
                                     <li><a href="#">Order History</a></li>
                                     <li><a href="./?page=wishlist">Wish List</a></li>
                                     <li><a href="#">Newsletter</a></li>

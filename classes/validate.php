@@ -31,6 +31,14 @@
                 return true;
             }
         }
+
+        public function numeric($input)
+        {
+            if(!is_numeric($input))
+            {
+                return true;
+            }
+        }
     }
 
 

@@ -8,10 +8,13 @@
     // var_dump($page);
     // die;
     
-    $page = $_GET["page"] ?? "home";
+    $page = $_GET["page"] ?? "dataHome";
 
     switch($page) 
     {
+        case "dataHome":
+            require_once("./controller/products/dataHome.php");
+            break;
         case "home":
             require_once("./view/home.php");
             break;
@@ -35,6 +38,12 @@
             break;
         case "product-details":
             require_once("./view/product-details.php");
+            break;
+        case "cart":
+            require_once("./view/cart.php");
+            break;
+        case "create-review":
+            require_once("./controller/products/create-review.php");
             break;
         case "wishlist":
             require_once("./view/wishlist.php");

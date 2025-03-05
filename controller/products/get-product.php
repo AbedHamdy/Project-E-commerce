@@ -1,15 +1,32 @@
 <?php 
 
     // echo "abed";
+    // var_dump($_GET);
     // die;
+    $numberProduct = $_GET["product_id"];
+    // echo $numberProduct ;
+    // die;
+    
     require_once("./env.php");
     require_once("./model/Product.php");
-
-    $products = Product::getAllProducts();
-    if($products > 0)
+    require_once("./model/Review.php");
+    
+    $product = Product::productDetails($numberProduct);
+    if($product > 0)
     {
-        $_SESSION['products'] = $products;
-        header("Location:./?page=product-details");
+        // var_dump($product);
+        // die;
+        $_SESSION['product'] = $product;
+        $reviews = Review::getAllReviews($numberProduct);
+        if($reviews > 0)
+        {
+            $_SESSION['reviews'] = $reviews;
+            header("Location:./?page=product-details");
+        }
+        else if($reviews = -1)
+        {
+            header("Location:./?page=product-details");
+        }
     }
     else 
     {

@@ -77,3 +77,14 @@ create table `contact`
     `message` text not null,
     `created_at` timestamp default current_timestamp
 );
+
+create table `reviews` 
+(
+    `id` int auto_increment primary key,
+    `product_id` int not null,
+    `email` varchar(255) not null,
+    `name` varchar(255) not null,
+    `message` text not null,
+    `created_at` timestamp default current_timestamp,
+    foreign key (`product_id`) references `products` (`id`)
+);

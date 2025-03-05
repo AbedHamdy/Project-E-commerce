@@ -103,6 +103,39 @@
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () 
+        {
+            let activeTab = localStorage.getItem("activeTab");
+
+            if (activeTab) 
+            {
+                let tabElement = document.querySelector(`a[href="${activeTab}"]`);
+                if (tabElement) 
+                {
+                    document.querySelectorAll(".nav a").forEach(tab => 
+                    {
+                        tab.classList.remove("active");
+                    });
+                    tabElement.classList.add("active");
+
+                    document.querySelectorAll(".tab-pane").forEach(pane => 
+                    {
+                        pane.classList.remove("show", "active");
+                    });
+                    document.querySelector(activeTab).classList.add("show", "active");
+                }
+            }
+
+            document.querySelectorAll('.nav a').forEach(tab => 
+            {
+                tab.addEventListener("click", function () 
+                {
+                    localStorage.setItem("activeTab", this.getAttribute("href"));
+                });
+            });
+        });
+    </script>
 
 
     </body>

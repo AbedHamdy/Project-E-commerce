@@ -1,4 +1,4 @@
-    <!--slider area start-->
+<!--slider area start-->
     <section class="slider_section d-flex align-items-center" data-bgimg="assets/img/slider/slider3.jpg">
         <div class="slider_area owl-carousel">
             <div class="single_slider d-flex align-items-center">

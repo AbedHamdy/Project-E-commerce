@@ -18,12 +18,12 @@
         // die;
         $_SESSION['product'] = $product;
         $reviews = Review::getAllReviews($numberProduct);
-        if($reviews > 0)
+        if($reviews !== -1)
         {
             $_SESSION['reviews'] = $reviews;
             header("Location:./?page=product-details");
         }
-        else if($reviews = -1)
+        else
         {
             header("Location:./?page=product-details");
         }

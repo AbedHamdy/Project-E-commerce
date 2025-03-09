@@ -39,23 +39,6 @@ create table `orders`
     foreign key (`user_id`) references `users` (`id`)
 );
 
-create table `orders_owners` 
-(
-    `id` int auto_increment primary key,
-    `order_id` int not null,
-    `product_id` int not null,
-    `first_name` varchar(255) not null,
-    `last_name` varchar(255) not null,
-    `country` varchar(255) not null,
-    `street_address` varchar(255) not null,
-    `city` varchar(255) not null,
-    `status` enum('Processing' , 'Shipped' , 'Delivered') default 'Processing',
-    `phone` varchar(255) not null,
-    `notes` varchar(255) not null,
-    foreign key (`order_id`) references `orders` (`id`),
-    foreign key (`product_id`) references `products` (`id`)
-);
-
 create table `orders_products` 
 (
     `id` int auto_increment primary key,
@@ -88,3 +71,18 @@ create table `reviews`
     `created_at` timestamp default current_timestamp,
     foreign key (`product_id`) references `products` (`id`)
 );
+
+-- 
+alter table `orders` 
+    add column `first_name` varchar(255) not null,
+    add column `last_name` varchar(255) not null,
+    add column `country` varchar(255) not null,
+    add column `street_address` varchar(255) not null,
+    add column `city` varchar(255) not null,
+    add column `status` enum('Processing' , 'Shipped' , 'Delivered') default 'Processing',
+    add column `phone` varchar(255) not null,
+    add column `notes` varchar(255) not null,
+    add column `email` varchar(255) not null;
+
+alter table `orders_products` 
+    add column `price` int not null;

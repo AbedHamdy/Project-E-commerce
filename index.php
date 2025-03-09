@@ -10,6 +10,7 @@
     
     $page = $_GET["page"] ?? "dataHome";
 
+    // var_dump($page);
     switch($page) 
     {
         case "dataHome":
@@ -39,16 +40,31 @@
         case "product-details":
             require_once("./view/product-details.php");
             break;
+        case "addCart":
+            require_once("./controller/cart/addCart.php");
+            break;
         case "cart":
             require_once("./view/cart.php");
+            break;
+        case "deleteCart":
+            require_once("./controller/cart/deleteCart.php");
+            break;
+        case "updateCart":
+            require_once("./controller/cart/updateCart.php");
+            break;
+        case "checkout":
+            require_once("./view/checkout.php");
+            break;
+        case "create_order":
+            require_once("./controller/cart/create-order.php");
             break;
         case "create-review":
             require_once("./controller/products/create-review.php");
             break;
+// =================================================================
         case "wishlist":
             require_once("./view/wishlist.php");
             break;
-// =================================================================
         case "about":
             require_once("./view/about.php");
             break;
@@ -60,9 +76,6 @@
             break;
         case "services":
             require_once("./view/services.php");
-            break;
-        case "wishlist":
-            require_once("./view/wishlist.php");
             break;
         case "faq":
             require_once("./view/faq.php");

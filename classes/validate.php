@@ -39,6 +39,14 @@
                 return true;
             }
         }
+
+        public function word($input)
+        {
+            if(!is_string($input))
+            {
+                return true;
+            }
+        }
     }
 
 

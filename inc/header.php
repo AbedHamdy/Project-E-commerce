@@ -31,7 +31,6 @@
     <!--Offcanvas menu area start-->
 
     <!--Offcanvas menu area end-->
-
     <header>
         <div class="main_header">
             <!--header top start-->

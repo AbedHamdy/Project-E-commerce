@@ -9994,3 +9994,19 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 /*privacy policy css end*/
 
 /*# sourceMappingURL=style.css.map */
+.product_update form {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* مسافة صغيرة بين المربع والزر */
+}
+
+.product_update input {
+  width: 50px;  /* ضبط عرض الـ input */
+  text-align: center; 
+}
+
+.product_update button {
+  height: 30px; /* ضبط ارتفاع الزر */
+  padding: 5px 10px;
+}
+

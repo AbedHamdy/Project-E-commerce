@@ -52,6 +52,11 @@
                     ];
                     // var_dump($_SESSION["auth"]);
                     // die;
+                if(isset($_POST["comeFrom"]))
+                {
+                    header("location:./?page=checkout");
+                    die;
+                }
                 header("location:./?page=home");
             }
             else 

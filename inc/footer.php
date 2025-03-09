@@ -135,6 +135,15 @@
                 });
             });
         });
+        document.querySelectorAll('.nav a').forEach(tab => 
+        {
+            tab.addEventListener("click", function () 
+            {
+                localStorage.setItem("activeTab", this.getAttribute("href"));
+                location.reload();
+            });
+        });
+
     </script>
 
 

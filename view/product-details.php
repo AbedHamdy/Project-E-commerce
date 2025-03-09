@@ -73,7 +73,7 @@
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="product_d_right">
-                            <form action="./?page=cart" method="POST"> 
+                            <form action="./?page=addCart" method="POST"> 
                                 <h1><?= $product["name"]; ?></h1>
                                 <!-- rating for product -->
                                 <!-- <div class=" product_ratting">
@@ -117,7 +117,7 @@
                                 <!-- quantity -->
                                 <div class="product_variant quantity">
                                     <label>quantity</label>
-                                    <input min="1" max="100" value="1" type="number">
+                                    <input min="1" max="100" name="quantity" value="1" type="number">
                                     <input type="hidden" name="product_id" value="<?= $product["id"]; ?>">
                                     <button class="button" type="submit">add to cart</button>  
                                 </div>
@@ -202,7 +202,18 @@
                             </div>
                             <div class="tab-pane fade" id="reviews" role="tabpanel" >
                                 <div class="reviews_wrapper">
-                                    <h2><?= $_SESSION["reviews"]["count"]; ?> review for Donec eu furniture</h2>
+                                    <h2>
+                                        <?php 
+                                            if(isset($_SESSION["reviews"])) 
+                                            {
+                                                echo $_SESSION["reviews"]["count"];
+                                            }
+                                            else 
+                                            {
+                                                echo "0";
+                                            }
+                                        ?> review for Donec eu furniture
+                                    </h2>
                                     <?php 
                                         if(isset($_SESSION["reviews"])) : 
                                             $reviews = $_SESSION["reviews"]["reviews"];
@@ -230,6 +241,7 @@
                                                 </div>
                                         <?php 
                                                 endforeach;
+                                                // unset($_SESSION["reviews"]);
                                             endif;
                                         ?>
                                     <div class="comment_title">

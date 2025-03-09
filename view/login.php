@@ -43,7 +43,14 @@
                                             <label for="email">Email</label>
                                             <input type="email" name="email" id = "email" placeholder="Enter your Email">
                                         </div>
-                                        <div class="single-acc-field">
+                                        <?php 
+                                            if(isset($_GET["comeFrom"])) :
+                                        ?>
+                                                <input type="hidden" name="comeFrom" value="<?= $_GET["comeFrom"]; ?>">
+                                        <?php 
+                                            endif;
+                                        ?>
+                                            <div class="single-acc-field">
                                             <label for="password">Password</label>
                                             <input type="password" name="password" id = "password" placeholder="Enter your password">
                                         </div>

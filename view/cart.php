@@ -62,7 +62,7 @@
                                                 $total = $currentPrice * $product["quantity"];
                                         ?> 
                                                 <tr>
-                                                    <td class="product_thumb"><a href="#"><img src="<?= $product["image"]; ?>" alt="Image of product"></a></td>
+                                                    <td class="product_thumb"><a href="#"><img src="./storage/images/<?= $product["image"]; ?>" alt="Image of product"></a></td>
                                                     <td class="product_name"><?= $product["name"]; ?></td>
                                                     <td class="product-price">$<?= $currentPrice ?></td>
                                                     <td class="product_quantity"><?= $product["quantity"]; ?></td>

@@ -86,3 +86,6 @@ alter table `orders`
 
 alter table `orders_products` 
     add column `price` int not null;
+
+alter table `users` 
+    add column status enum('user' , 'admin') not null default 'user';

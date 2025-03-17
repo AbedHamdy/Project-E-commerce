@@ -56,7 +56,7 @@
         static function dataHome()
         {
             $con = DB::connect();
-            $sql = "SELECT id , name , image , price , discount FROM `products` WHERE `id` < 5";
+            $sql = "SELECT id, name, image, price, discount FROM products ORDER BY id ASC LIMIT 3";
             $result = $con->query($sql);
             $data = [];
 
@@ -86,6 +86,21 @@
                     $data[] = $row;
                 }
                 return $data;
+            }
+
+            return -1;
+        }
+
+        static function numberProducts()
+        {
+            $con = DB::connect();
+            $sql = "SELECT COUNT(*) as total FROM `products`";
+            $result = $con->query($sql);
+
+            if($result)
+            {
+                $row = $result->fetch_assoc(); 
+                return $row["total"];
             }
 
             return -1;

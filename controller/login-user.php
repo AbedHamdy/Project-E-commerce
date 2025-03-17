@@ -48,13 +48,19 @@
                     [
                         "id" => $clint["id"],
                         "name" => $clint["name"],
-                        "email" => $data["email"]
+                        "email" => $data["email"],
+                        "status" => $clint["status"]
                     ];
                     // var_dump($_SESSION["auth"]);
                     // die;
                 if(isset($_POST["comeFrom"]))
                 {
                     header("location:./?page=checkout");
+                    die;
+                }
+                if($clint["status"] == "admin")
+                {
+                    header("location:./?page=data");
                     die;
                 }
                 header("location:./?page=home");

@@ -4,7 +4,9 @@
     require_once("./model/Product.php");
 
     $productsHome = Product::dataHome();
-    if($productsHome > 0)
+    // var_dump($productsHome);
+    // die;
+    if($productsHome != 0)
     {
         $_SESSION["productsHome"] = $productsHome;
         $twoProduct = Product::limitProduct(2);

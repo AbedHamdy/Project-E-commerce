@@ -7,6 +7,15 @@
         header("location:./?page=login&comeFrom=check");
         die;
     }
+
+    $dataDecode = file_get_contents("./storage/cart.json");
+    $allProducts = json_decode($dataDecode, true);
+    if(empty($allProducts))
+    {
+        $_SESSION["cartEmpty"] = "cart is empty";
+        header("location:./?page=dataHome");
+        die;
+    }
     spl_autoload_register(function($class)
     {
         require_once "./classes/$class.php";
@@ -100,8 +109,6 @@
 
         if(empty($errors))
         {
-            $dataDecode = file_get_contents("./storage/cart.json");
-            $allProducts = json_decode($dataDecode, true);
             // var_dump($allProducts);
             // die;
             $total = 0;

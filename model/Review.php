@@ -24,7 +24,7 @@
             $result = $con->query($sql);
             if($result)
             {
-                return true;
+                return 1;
             }
             return -1;
         }
@@ -33,7 +33,7 @@
         {
             $con = DB::connect();
             $sql = 
-                "SELECT reviews.name , reviews.created_at , reviews.message FROM `reviews` WHERE product_id = '$product_id'";
+                "SELECT reviews.name , reviews.created_at , reviews.message FROM `reviews` WHERE `product_id` = '$product_id'";
 
             $result = $con->query($sql);
             $data = [];

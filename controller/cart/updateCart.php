@@ -24,7 +24,7 @@
         // validate quantity
         $validateId = new ValidateId($data["quantity"]);
         $errorQuant = $validateId->checkId();
-        if($errorQuant === true)
+        if($errorQuant !== true)
         {
             $errors[] = $errorQuant;
         }
@@ -32,10 +32,13 @@
         // validate product_id 
         $validateId = new ValidateId($data["product_id"]);
         $errorId = $validateId->checkId();
-        if($errorId === true)
+        if($errorId !== true)
         {
             $errors[] = $errorId;
         }
+
+        // var_dump($errors);
+        // die;
 
         if(empty($errors))
         {

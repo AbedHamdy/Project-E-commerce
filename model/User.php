@@ -40,6 +40,21 @@
             }
             return -1;
         }
+
+        static function numberUsers()
+        {
+            $con = DB::connect();
+            $sql = "SELECT COUNT(*) as total FROM `users` WHERE `status` = 'user'";
+            $result = $con->query($sql);
+
+            if($result)
+            {
+                $row = $result->fetch_assoc(); 
+                return $row["total"];
+            }
+
+            return -1;
+        }
     }
 
 

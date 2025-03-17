@@ -25,7 +25,7 @@
         // validate id
         $validateId = new ValidateId($data["product_id"]);
         $errorId = $validateId->checkId();
-        if($errorId === true)
+        if($errorId !== true)
         {
             $errors[] = $errorId;
         }
@@ -64,18 +64,28 @@
             $review = new Review($data["name"], $data["email"], $data["message"], $data["product_id"]);
             $result = $review->setData();
 
-            if($result > 0)
+            if($result == 1)
             {
-                $success[] = "Review added successfully";
-                $_SESSION["success"] = $success;
+                // echo "abed";
+                $success = "Review added successfully";
+                $_SESSION["successReview"] = $success;
+                // var_dump($_SESSION["successReview"]);
+                header("location:./?page=product-details");
+                // die;
+            }
+            else 
+            {
+                $errors[] = "Internal server error";
+                $_SESSION["errorsReview"] = $errors;
                 header("location:./?page=product-details");
             }
+            // echo "no";
         }
         else 
         {
             // var_dump($errors);
             // die;
-            $_SESSION["errors"] = $errors;
+            $_SESSION["errorsReview"] = $errors;
             header("location:./?page=product-details");
             die;
         }
@@ -83,7 +93,7 @@
     else 
     {
         $errors[] = "Invalid request";
-        $_SESSION["errors"] = $errors;
+        $_SESSION["errorsReview"] = $errors;
         header("location:./?page=404");
         die;
     }

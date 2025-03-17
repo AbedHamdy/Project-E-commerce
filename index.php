@@ -7,7 +7,11 @@
     // $page = $_GET["page"] ?? "home";
     // var_dump($page);
     // die;
-    
+    if(isset($_SESSION["auth"]["status"]) && $_SESSION["auth"]["status"] == "admin")
+    {
+        header("location:./AdminLTE/?page=data");
+        die;
+    }
     $page = $_GET["page"] ?? "dataHome";
 
     // var_dump($page);
@@ -30,6 +34,9 @@
             break;
         case "create-user":
             require_once("./controller/create-user.php");
+            break;
+        case "logout":
+            require_once("./controller/logout.php");
             break;
         case "my-account":
             require_once("./view/my-account.php");
@@ -61,10 +68,13 @@
         case "create-review":
             require_once("./controller/products/create-review.php");
             break;
-// =================================================================
+        default:
+        require_once("./view/404.php"); 
+        break;
         case "wishlist":
             require_once("./view/wishlist.php");
             break;
+// =================================================================
         case "about":
             require_once("./view/about.php");
             break;
@@ -79,9 +89,6 @@
             break;
         case "faq":
             require_once("./view/faq.php");
-            break;
-        default:
-            require_once("./view/404.php"); 
             break;
     }
 	

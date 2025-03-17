@@ -44,6 +44,59 @@
             return -1;
         }
 
+        static function numberOrders()
+        {
+            $con = DB::connect();
+            $sql = "SELECT COUNT(*) as total FROM `orders`";
+            $result = $con->query($sql);
+
+            if($result)
+            {
+                $row = $result->fetch_assoc(); 
+                return $row["total"];
+            }
+
+            return -1;
+        }
+
+        static function getData()
+        {
+            $con = DB::connect();
+            $sql = "SELECT orders.* , products.name , orders_products.quantity FROM orders
+                JOIN orders_products ON orders.id = orders_products.order_id
+                JOIN products ON orders_products.product_id = products.id
+                WHERE orders.status IN ('Processing', 'Shipped')
+                ORDER BY orders.id DESC";
+            $result = $con->query($sql);
+            
+            $data = [];
+
+            if($result && $result->num_rows > 0)
+            {
+                while ($row = $result->fetch_assoc()) 
+                {
+                    $data[] = $row;
+                }
+                return $data;
+            }
+
+            return -1;
+
+        }
+
+        static function changeStatus($status , $id)
+        {
+            $con = DB::connect();
+            $sql = "UPDATE `orders` SET `status` = '$status' WHERE `id` = '$id'";
+            $result = $con->query($sql);
+
+            if($result)
+            {
+                return 1;
+            }
+            return -1;
+        }
+
     }
 
 

@@ -17,16 +17,17 @@
         // var_dump($product);
         // die;
         $_SESSION['product'] = $product;
+        
         $reviews = Review::getAllReviews($numberProduct);
-        if($reviews !== -1)
+        
+        if(is_array($reviews))
         {
+            // $_SESSION['reviews'];
             $_SESSION['reviews'] = $reviews;
-            header("Location:./?page=product-details");
+            // var_dump($reviews);
+            // die;
         }
-        else
-        {
-            header("Location:./?page=product-details");
-        }
+        header("Location:./?page=product-details"); 
     }
     else 
     {

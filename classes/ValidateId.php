@@ -15,6 +15,7 @@
             {
                 return "id must be numeric";
             }
+            return true;
         }
     }
 

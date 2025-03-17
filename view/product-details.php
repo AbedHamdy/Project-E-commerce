@@ -14,15 +14,15 @@
     </div>         
 </div>
 <?php 
-    if(isset($_SESSION['noProducts'])) :
+    if(isset($_SESSION["errors"])) :
 ?>
-    <div class="container">
-        <div class="alert alert-warning text-center mt-4" role="alert" style="padding: 20px; border-radius: 10px; font-size: 18px;">
-            <i class="fas fa-exclamation-circle"></i> <strong>No Products Found</strong>
+        <div class="container">
+            <div class="alert alert-warning text-center mt-4" role="alert" style="padding: 20px; border-radius: 10px; font-size: 18px;">
+                <i class="fas fa-exclamation-circle"></i> <strong>No Products Found</strong>
+            </div>
         </div>
-    </div>
 <?php
-    unset($_SESSION["noProducts"]);
+        unset($_SESSION["errors"]);
     endif;
     // unset($_SESSION['noProducts']);
     if(isset($_SESSION['product'])) :
@@ -39,36 +39,8 @@
                     <div class="col-lg-6 col-md-6">
                     <div class="product-details-tab">
                             <div id="img-1" class="zoomWrapper single-zoom">
-                                <img id="zoom1" src="<?= $product["image"]; ?>" data-zoom-image="<?= $product["image"]; ?>" alt="Product Image">
+                                <img id="zoom1" src="./storage/images/<?= $product["image"]; ?>" data-zoom-image="<?= $product["image"]; ?>" alt="Product Image">
                             </div>
-                            <!-- <div class="single-zoom-thumb">
-                                <ul class="s-tab-zoom owl-carousel single-product-active" id="gallery_01">
-                                    <li>
-                                        <a href="#" class="elevatezoom-gallery active" data-update="" data-image="assets/img/product/details-2.jpg" data-zoom-image="assets/img/product/details-2.jpg">
-                                            <img src="assets/img/product/details-2.jpg" alt="zo-th-1"/>
-                                        </a>
-
-                                    </li>
-                                    <li >
-                                        <a href="#" class="elevatezoom-gallery active" data-update="" data-image="assets/img/product/details-3.jpg" data-zoom-image="assets/img/product/details-3.jpg">
-                                            <img src="assets/img/product/details-3.jpg" alt="zo-th-1"/>
-                                        </a>
-
-                                    </li>
-                                    <li >
-                                        <a href="#" class="elevatezoom-gallery active" data-update="" data-image="assets/img/product/details-4.jpg" data-zoom-image="assets/img/product/details-4.jpg">
-                                            <img src="assets/img/product/details-4.jpg" alt="zo-th-1"/>
-                                        </a>
-
-                                    </li>
-                                    <li >
-                                        <a href="#" class="elevatezoom-gallery active" data-update="" data-image="assets/img/product/details-1.jpg" data-zoom-image="assets/img/product/details-1.jpg">
-                                            <img src="assets/img/product/details-1.jpg" alt="zo-th-1"/>
-                                        </a>
-
-                                    </li>
-                                </ul>
-                            </div> -->
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
@@ -76,16 +48,6 @@
                             <form action="./?page=addCart" method="POST"> 
                                 <h1><?= $product["name"]; ?></h1>
                                 <!-- rating for product -->
-                                <!-- <div class=" product_ratting">
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li class="review"><a href="#"> (250 reviews) </a></li>
-                                    </ul>
-                                </div> -->
                                 <div class="price_box">
                                     <span class="current_price">$<?= $currentPrice; ?></span>
                                     <span class="old_price">$<?= $product["price"]; ?></span>
@@ -102,17 +64,6 @@
                                 </div>
                                 <div class="product_timing">
                                     <div data-countdown="2023/12/15"></div>
-                                </div>
-                                <!-- color -->
-                                <div class="product_variant color">
-                                    <h3>Available Options</h3>
-                                    <label>color</label>
-                                    <ul>
-                                        <li class="color1"><a href="#"></a></li>
-                                        <li class="color2"><a href="#"></a></li>
-                                        <li class="color3"><a href="#"></a></li>
-                                        <li class="color4"><a href="#"></a></li>
-                                    </ul>
                                 </div>
                                 <!-- quantity -->
                                 <div class="product_variant quantity">
@@ -225,15 +176,6 @@
                                                     </div>
                                                     <div class="comment_text">
                                                         <div class="reviews_meta">
-                                                            <!-- <div class="star_rating">
-                                                                <ul>
-                                                                    <li><a href="#"><i class="ion-ios-star"></i></a></li>
-                                                                    <li><a href="#"><i class="ion-ios-star"></i></a></li>
-                                                                    <li><a href="#"><i class="ion-ios-star"></i></a></li>
-                                                                    <li><a href="#"><i class="ion-ios-star"></i></a></li>
-                                                                    <li><a href="#"><i class="ion-ios-star"></i></a></li>
-                                                                </ul>   
-                                                            </div> -->
                                                             <p><strong><?= $review["name"]; ?></strong>- <?= $review["created_at"]; ?></p>
                                                             <span><?= $review["message"]; ?></span>
                                                         </div>
@@ -248,25 +190,21 @@
                                         <h2>Add a review</h2>
                                         <p>Your email address will not be published.  Required fields are marked </p>
                                     </div>
-                                    <!-- <div class="product_ratting mb-10">
-                                       <h3>Your rating</h3>
-                                        <ul>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        </ul>
-                                    </div> -->
                                     <div class="product_review_form">
                                         <?php 
-                                            if(isset($_SESSION["errors"])) :
-                                                foreach($_SESSION["errors"] as $error) :
+                                            if(isset($_SESSION["errorsReview"])) :
+                                                foreach($_SESSION["errorsReview"] as $error) :
                                         ?>
                                                     <div class='alert alert-danger'><?= $error ?></div>
                                         <?php 
                                                 endforeach;
-                                                unset($_SESSION["errors"]);
+                                                unset($_SESSION["errorsReview"]);
+                                            endif;
+                                            if(isset($_SESSION["successReview"])) :
+                                        ?>
+                                                    <div class='alert alert-success'><?= $_SESSION["successReview"]; ?></div>
+                                        <?php 
+                                                unset($_SESSION["successReview"]);
                                             endif;
                                         ?>
                                         <form action="./?page=create-review" method="POST">

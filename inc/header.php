@@ -156,6 +156,7 @@
                                                 <li><a href="./?page=faq">Frequently Questions</a></li>
                                                 <li><a href="./?page=login">login</a></li>
                                                 <li><a href="./?page=register">register</a></li>
+                                                <li><a href="./?page=logout">logout</a></li>
                                                 <li><a href="./?page=forget-password">Forget Password</a></li>
                                                 <li><a href="./?page=404">Error 404</a></li>
                                                 <li><a href="./?page=cart">cart</a></li>

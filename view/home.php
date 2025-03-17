@@ -1,3 +1,13 @@
+<?php 
+    if(isset($_SESSION["cartEmpty"])) : 
+?>
+        <div class="alert alert-warning text-center" role="alert" style="font-size: 18px; padding: 15px;">
+            Cart is empty
+        </div>
+<?php 
+        unset($_SESSION["cartEmpty"]);
+    endif;
+?>
 <!--slider area start-->
     <section class="slider_section d-flex align-items-center" data-bgimg="assets/img/slider/slider3.jpg">
         <div class="slider_area owl-carousel">
@@ -84,7 +94,7 @@
                                     <a href="./?page=products&product_id=<?= $product["id"]; ?>">
                                         <div class="tranding-pro-img">
                                             <!-- assets/img/product/tranding-1.jpg -->
-                                            <img src="<?= $product["image"]; ?>" alt="Image of product">
+                                            <img src="./storage/images/<?= $product["image"]; ?>" alt="Image of product">
                                         </div>
                                         <div class="tranding-pro-title">
                                             <h3><?= $product["name"]; ?></h3>
@@ -101,6 +111,12 @@
                             </div>
                 <?php 
                         endforeach;
+                    elseif(isset($_SESSION["noProductsHome"])) :
+                ?>
+                        <div class="alert alert-warning text-center" role="alert" style="font-size: 18px; padding: 15px;">
+                            No products available at the moment!
+                        </div>
+                <?php 
                     endif;
                 ?>
             </div>
@@ -158,7 +174,7 @@
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 order-lg-1 order-md-1 order-sm-1">
                                 <div class="pro-details-feature">
                                     <!-- assets/img/product/1.png -->
-                                    <img src="<?= $product["image"]; ?>" alt="Image of product">
+                                    <img src="./storage/images/<?= $product["image"]; ?>" alt="Image of product">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 order-lg-2 order-md-2 order-sm-2">
@@ -174,6 +190,12 @@
                         </div>
             <?php 
                     endforeach;
+                elseif(isset($_SESSION["noProductsHome"])) :
+            ?>
+                    <div class="alert alert-warning text-center" role="alert" style="font-size: 18px; padding: 15px;">
+                        No products available at the moment!
+                    </div>
+            <?php 
                 endif;
             ?>
         </div>
@@ -223,7 +245,7 @@
                                     <a href="./?page=products&product_id=<?= $product["id"]; ?>">
                                         <div class="tranding-pro-img">
                                             <!-- assets/img/product/tranding-1.jpg -->
-                                            <img src="<?= $product["image"]; ?>" alt="Image of product">
+                                            <img src="./storage/images/<?= $product["image"]; ?>" alt="Image of product">
                                         </div>
                                         <div class="tranding-pro-title">
                                             <h3><?= $product["name"]; ?></h3>
@@ -240,6 +262,12 @@
                             </div>
                 <?php 
                         endforeach;
+                    elseif(isset($_SESSION["noProductsHome"])) :
+                ?>
+                        <div class="alert alert-warning text-center" role="alert" style="font-size: 18px; padding: 15px;">
+                            No products available at the moment!
+                        </div>
+                <?php 
                     endif;
                 ?>
             </div>

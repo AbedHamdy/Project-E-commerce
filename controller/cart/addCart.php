@@ -37,6 +37,21 @@
         // var_dump($errors);
         // die;
 
+        // enforce quantity bounds (min 1, max stock if available)
+        require_once("./env.php");
+        require_once("./model/Product.php");
+        $maxAllowed = 100;
+        $productForBounds = Product::productDetails($data["product_id"]);
+        if (is_array($productForBounds) && isset($productForBounds["stock"])) {
+            $maxAllowed = (int)$productForBounds["stock"]; 
+        }
+        if ((int)$data["quantity"] < 1) {
+            $errors[] = "Quantity must be at least 1";
+        }
+        if ((int)$data["quantity"] > $maxAllowed) {
+            $errors[] = "Quantity exceeds available stock";
+        }
+
         if(empty($errors))
         {
             require_once("./env.php");

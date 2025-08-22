@@ -40,6 +40,21 @@
         // var_dump($errors);
         // die;
 
+        // enforce quantity bounds (min 1, max stock if available)
+        require_once("./env.php");
+        require_once("./model/Product.php");
+        $maxAllowed = 100;
+        $productDetails = Product::productDetails($data["product_id"]);
+        if (is_array($productDetails) && isset($productDetails["stock"])) {
+            $maxAllowed = (int)$productDetails["stock"]; 
+        }
+        if ((int)$data["quantity"] < 1) {
+            $errors[] = "Quantity must be at least 1";
+        }
+        if ((int)$data["quantity"] > $maxAllowed) {
+            $errors[] = "Quantity exceeds available stock";
+        }
+
         if(empty($errors))
         {
             $dataDecode = file_get_contents("./storage/cart.json");
@@ -75,6 +90,12 @@
             }
 
         }
+        else
+        {
+            $_SESSION["errors"] = $errors;
+            header("location:./?page=cart");
+            die;
+        }
     }
     else
     {
@@ -83,7 +104,6 @@
         header("location:./?page=404");
         die;
     }
-
 
 
 

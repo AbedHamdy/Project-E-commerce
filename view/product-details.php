@@ -68,7 +68,7 @@
                                 <!-- quantity -->
                                 <div class="product_variant quantity">
                                     <label>quantity</label>
-                                    <input min="1" max="100" name="quantity" value="1" type="number">
+                                    <input min="1" max="<?= isset($product['stock']) ? (int)$product['stock'] : 100; ?>" name="quantity" value="1" type="number">
                                     <input type="hidden" name="product_id" value="<?= $product["id"]; ?>">
                                     <button class="button" type="submit">add to cart</button>  
                                 </div>

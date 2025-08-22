@@ -65,13 +65,19 @@
                                                     <td class="product_thumb"><a href="#"><img src="./storage/images/<?= $product["image"]; ?>" alt="Image of product"></a></td>
                                                     <td class="product_name"><?= $product["name"]; ?></td>
                                                     <td class="product-price">$<?= $currentPrice ?></td>
-                                                    <td class="product_quantity"><?= $product["quantity"]; ?></td>
+                                                    <td class="product_quantity">
+                                                        <div class="input-group" style="max-width:140px;">
+                                                            <button class="btn btn-outline-secondary btn-sm" type="button" onclick="stepQty(this, -1)">-</button>
+                                                            <input type="number" name="quantity" class="form-control form-control-sm text-center qty-input" value="<?= $product['quantity']; ?>" min="1" max="<?= isset($product['stock']) ? (int)$product['stock'] : 100; ?>">
+                                                            <button class="btn btn-outline-secondary btn-sm" type="button" onclick="stepQty(this, 1)">+</button>
+                                                        </div>
+                                                    </td>
                                                     <td class="product_total">$<?= $total ?></td>
                                                     <td class="product_remove"><a href="./?page=deleteCart&product_id=<?= $product["id"]; ?>"><i class="ion-android-close"></i></a></td>
                                                     <td class="product_update">
-                                                        <form action="./?page=updateCart" method="POST">
+                                                        <form action="./?page=updateCart" method="POST" onsubmit="return clampQty(this)">
                                                             <input type="hidden" name="product_id" value="<?= $product['id']; ?>">
-                                                            <input type="number" name="quantity" class="form-control" value="<?= $product['quantity']; ?>" min="1">
+                                                            <input type="hidden" name="quantity" value="<?= $product['quantity']; ?>" class="hidden-qty">
                                                             <button type="submit" class="btn btn-primary btn-sm">Update</button>
                                                         </form>
                                                     </td>
@@ -136,4 +142,42 @@
     </div>
     <!--shopping cart area end -->
         
+<script>
+function getBounds(input){
+    var min = parseInt(input.getAttribute('min') || '1', 10);
+    var max = parseInt(input.getAttribute('max') || '100', 10);
+    if (isNaN(min) || min < 1) min = 1;
+    if (isNaN(max) || max < 1) max = 1;
+    if (max < min) max = min;
+    return {min:min, max:max};
+}
+function stepQty(btn, delta){
+    var container = btn.closest('tr');
+    var input = container.querySelector('.qty-input');
+    var bounds = getBounds(input);
+    var value = parseInt(input.value || '1', 10);
+    if (isNaN(value)) value = bounds.min;
+    value += delta;
+    if (value < bounds.min) value = bounds.min;
+    if (value > bounds.max) value = bounds.max;
+    input.value = value;
+    var hidden = container.querySelector('.hidden-qty');
+    if (hidden) hidden.value = value;
+    return false;
+}
+function clampQty(form){
+    var row = form.closest('tr');
+    var input = row.querySelector('.qty-input');
+    var hidden = row.querySelector('.hidden-qty');
+    if (!input || !hidden) return true;
+    var bounds = getBounds(input);
+    var value = parseInt(input.value || '1', 10);
+    if (isNaN(value)) value = bounds.min;
+    if (value < bounds.min) value = bounds.min;
+    if (value > bounds.max) value = bounds.max;
+    input.value = value;
+    hidden.value = value;
+    return true;
+}
+</script>
 
